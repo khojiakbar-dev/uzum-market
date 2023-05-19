@@ -4,7 +4,7 @@ let productCont = document.querySelector('.productInfo')
 let savedProducts = JSON.parse(localStorage.getItem('product')) || [];
 let basketProducts = JSON.parse(localStorage.getItem('basket')) || [];
 header()
-import {footer} from '/modules/footer.js'
+import { footer } from '/modules/footer.js'
 
 
 footer()
@@ -49,12 +49,12 @@ function product_reload(arr, place) {
             let orgPrice = item.price
             let leftSlider = document.createElement('img')
             let rightSlider = document.createElement('img')
-            
+
             let totalCost = 0
             let totalds = 0
             let count = 1
             let dsPrc = 0
-            
+
             leftSlider.classList.add('leftSlider')
             rightSlider.classList.add('rightSlider')
             topOfProduct.classList.add('topOfProduct')
@@ -85,18 +85,18 @@ function product_reload(arr, place) {
             numberCount.innerHTML = "1"
             plus.innerHTML = '+'
             advice.innerHTML =
-            'Станьте востребованным разработчиком. Вы изучите основы программирования и основныеконцепции компьютерных наук, цифровые технологии, операционные системы, программное обеспечение, базы данных, системы аналитики, языки программирования и многое другое. Познакомитесь с тестированием и системныманализом. На программе сможете сделать осознанный выбор специализации и технологий, прокачаться ввыбранном направлении.'
+                'Станьте востребованным разработчиком. Вы изучите основы программирования и основныеконцепции компьютерных наук, цифровые технологии, операционные системы, программное обеспечение, базы данных, системы аналитики, языки программирования и многое другое. Познакомитесь с тестированием и системныманализом. На программе сможете сделать осознанный выбор специализации и технологий, прокачаться ввыбранном направлении.'
             addBasket.innerHTML = 'Добавить в корзину'
             addSaved.innerHTML = 'Добавить в избранное'
             opisanie.innerHTML = 'Описание товара'
             moreInfo.innerHTML = item.description
             leftSlider.src = '/public/arrow-left.svg'
             rightSlider.src = '/public/arrow-right.svg'
-            
+
             place.append(topOfProduct, bottomOfProduct)
             topOfProduct.append(left_scroll, sliderProduct, info)
             sliderProduct.append(leftSlider, productImgs, rightSlider)
-            
+
             for (let imgs of item.media) {
                 let swiperImg = document.createElement('img')
                 swiperImg.classList.add('swiperImg')
@@ -104,25 +104,25 @@ function product_reload(arr, place) {
                 let carouselImg = document.createElement('img')
                 carouselImg.classList.add('carouselImg')
                 carouselImg.src = imgs
-                
+
                 left_scroll.append(swiperImg)
                 productImgs.append(carouselImg)
             }
-            
+
             info.append(titleRp, prices, counter, hr, advice, btns)
             prices.append(newPrice, originPC)
             counter.append(minus, numberCount, plus)
             btns.append(addBasket, addSaved)
             bottomOfProduct.append(descProduct, carousel)
             descProduct.append(opisanie, moreInfo)
-            
+
             if (item.salePercentage > 0) {
                 dsPrc = Math.floor((item.price / 100) * item.salePercentage)
             } else {
                 dsPrc = item.price
                 originPC.style.display = 'none'
             }
-            
+
             let formattedPrice = orgPrice.toLocaleString('ru-RU');
             let formattedPriceTwo = dsPrc.toLocaleString('ru-RU')
             newPrice.innerHTML = formattedPriceTwo + ' сум'
@@ -130,7 +130,7 @@ function product_reload(arr, place) {
 
             plus.style.cursor = 'pointer'
             minus.style.cursor = 'pointer'
-            
+
             plus.onclick = () => {
                 count++
                 numberCount.innerHTML = count
@@ -209,3 +209,35 @@ function product_reload(arr, place) {
         }
     }
 }
+
+
+
+// let prev = document.querySelector('.leftSlider')
+// let next = document.querySelector('.rightSlider')
+// let sliders = document.querySelectorAll('.carouselImg')
+
+// let slideIndex = 0
+// showSlides(slideIndex)
+
+// function showSlides(n) {
+
+//     if (n >= sliders.length) {
+//         slideIndex = 0
+//     }
+//     if (n < 0) {
+//         slideIndex = sliders.length - 1
+//     }
+
+//     sliders.forEach(el => el.classList.add('hide'))
+//     sliders[slideIndex].classList.remove('hide')
+//     sliders[slideIndex].classList.add('show')
+// }
+
+// prev.onclick = () => {
+//     slideIndex--
+//     showSlides(slideIndex)
+// }
+// next.onclick = () => {
+//     slideIndex++
+//     showSlides(slideIndex)
+// }

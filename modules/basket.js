@@ -3,7 +3,8 @@ import axios from 'axios'
 let storeData = JSON.parse(localStorage.getItem('basket'))
 let leftBasket = document.querySelector('.leftBasket')
 let basketProducts = JSON.parse(localStorage.getItem('basket')) || [];
-let overallPrice = document.querySelector('.overallPrice')
+let catalogH3 = document.querySelectorAll('.lengthPR')
+let addedNums = {};
 const url = 'http://localhost:3000/goods'
 
 axios.get(url)
@@ -102,11 +103,6 @@ function reload(storeArr, dataLoc) {
                         dsPrice.innerHTML = `${totalds} сум`
                     }
                 }
-
-
-
-
-
                 deleteBtn.onclick = () => {
                     if (!basketProducts.includes(item.id)) {
                         basketProducts.push(item.id)
@@ -119,8 +115,13 @@ function reload(storeArr, dataLoc) {
                         }, 200)
                     }
                 }
+                const type = item.type;
+                const similarProducts = dataLoc.filter(product => product.type === type);
+                const similarProductsLength = similarProducts.length;
 
-
+                catalogH3.forEach(it => {
+                    it.innerHTML = `${similarProductsLength} товаров`
+                })
             }
         }
     }
@@ -130,3 +131,20 @@ if (basketProducts.length === 0) {
     location.assign('/pages/empty.html')
 }
 
+let productCate = document.querySelectorAll('.catalogCategory')
+productCate[0].onclick = () => {
+    localStorage.setItem("type", "furniture")
+}
+
+productCate[1].onclick = () => {
+    localStorage.setItem("type", "PC")
+}
+productCate[2].onclick = () => {
+    localStorage.setItem("type", "audio")
+}
+productCate[3].onclick = () => {
+    localStorage.setItem("type", "TV")
+}
+productCate[4].onclick = () => {
+    localStorage.setItem("type", "kitchen")
+}

@@ -4,6 +4,7 @@ let locData = JSON.parse(localStorage.getItem('product'))
 let productsCont = document.querySelector('.savedCont')
 let savedProducts = JSON.parse(localStorage.getItem('product')) || [];
 let basketProducts = JSON.parse(localStorage.getItem('basket')) || [];
+let catalogH3 = document.querySelectorAll('.lengthPR')
 
 const url = 'http://localhost:3000/goods'
 
@@ -60,7 +61,7 @@ export function reload(arrLoc, dataLoc, place) {
                     dsPrc = item.price
                     spanDiscount.style.display = 'none'
                 }
-                
+
                 let formattedPrice = item.price.toLocaleString('ru-RU');
                 let formattedPriceTwo = dsPrc.toLocaleString('ru-RU')
                 spanOrigin.innerHTML = formattedPriceTwo + ' сум'
@@ -95,6 +96,13 @@ export function reload(arrLoc, dataLoc, place) {
                         localStorage.setItem("basket", JSON.stringify(basketProducts));
                     }
                 }
+                const type = item.type;
+                const similarProducts = dataLoc.filter(product => product.type === type);
+                const similarProductsLength = similarProducts.length;
+
+                catalogH3.forEach(it => {
+                    it.innerHTML = `${similarProductsLength} товаров`
+                })
 
                 place.append(productBox)
                 productBox.append(topSide, bottomSide)
@@ -108,3 +116,22 @@ export function reload(arrLoc, dataLoc, place) {
 if (savedProducts.length === 0) {
     location.assign('/pages/empty.html')
 }
+
+let productCate = document.querySelectorAll('.catalogCategory')
+productCate[0].onclick = () => {
+    localStorage.setItem("type", "furniture")
+}
+
+productCate[1].onclick = () => {
+    localStorage.setItem("type", "PC")
+}
+productCate[2].onclick = () => {
+    localStorage.setItem("type", "audio")
+}
+productCate[3].onclick = () => {
+    localStorage.setItem("type", "TV")
+}
+productCate[4].onclick = () => {
+    localStorage.setItem("type", "kitchen")
+}
+

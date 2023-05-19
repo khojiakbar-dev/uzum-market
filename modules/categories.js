@@ -1,22 +1,22 @@
-import axios from 'axios'
-let furniture = document.querySelector('.furniture')
-let pc = document.querySelector('.pc')
-let audio = document.querySelector('.audio')
-let tv = document.querySelector('.tv')
-let kitchen = document.querySelector('.kitchen')
+import axios from "axios";
+import { header } from '/modules/header.js'
+header()
+import { footer } from '/modules/footer.js'
+footer()
+let productsCont = document.querySelector('.productsCate')
 let savedProducts = JSON.parse(localStorage.getItem('product')) || [];
 let basketProducts = JSON.parse(localStorage.getItem('basket')) || [];
-let category = JSON.parse(localStorage.getItem('categ')) || [];
 let catalogH3 = document.querySelectorAll('.lengthPR')
-let furnitureCategory = document.querySelector('.furnitureCategory')
-const url = 'http://localhost:3000/goods'
-axios.get(url)
-    .then(res => {
-        reload(res.data)
-    }
-    )
+let type = localStorage.getItem("type")
+console.log(type);
 
-export function reload(arr) {
+axios.get('http://localhost:3000/goods')
+    .then(res => createCategory(res.data.filter(el => el.type === type)))
+
+
+
+export function createCategory(arr) {
+    productsCont.innerHTML = ''
     for (let item of arr) {
         let productBox = document.createElement('div')
         let topSide = document.createElement('div')
@@ -99,40 +99,10 @@ export function reload(arr) {
         spanOrigin.innerHTML = formattedPriceTwo + ' сум'
         spanDiscount.innerHTML = formattedPrice + 'сум'
 
-        if (item.type === 'furniture') {
-            furniture.append(productBox)
-            productBox.append(topSide, bottomSide)
-            topSide.append(productImg, savedImg, discountImg)
-            bottomSide.append(title, spanDiscount, spanOrigin, addProduct)
-        }
-
-        if (item.type === 'PC') {
-            pc.append(productBox)
-            productBox.append(topSide, bottomSide)
-            topSide.append(productImg, savedImg, discountImg)
-            bottomSide.append(title, spanDiscount, spanOrigin, addProduct)
-        }
-
-        if (item.type === 'audio') {
-            audio.append(productBox)
-            productBox.append(topSide, bottomSide)
-            topSide.append(productImg, savedImg, discountImg)
-            bottomSide.append(title, spanDiscount, spanOrigin, addProduct)
-        }
-
-        if (item.type === 'TV') {
-            tv.append(productBox)
-            productBox.append(topSide, bottomSide)
-            topSide.append(productImg, savedImg, discountImg)
-            bottomSide.append(title, spanDiscount, spanOrigin, addProduct)
-        }
-
-        if (item.type === 'kitchen') {
-            kitchen.append(productBox)
-            productBox.append(topSide, bottomSide)
-            topSide.append(productImg, savedImg, discountImg)
-            bottomSide.append(title, spanDiscount, spanOrigin, addProduct)
-        }
+        productsCont.append(productBox)
+        productBox.append(topSide, bottomSide)
+        topSide.append(productImg, savedImg, discountImg)
+        bottomSide.append(title, spanDiscount, spanOrigin, addProduct)
 
         const type = item.type;
         const similarProducts = arr.filter(product => product.type === type);
@@ -143,6 +113,40 @@ export function reload(arr) {
         })
     }
 }
+
+
+
+
+let prev = document.querySelector('.offer__slider-left')
+let next = document.querySelector('.offer__slider-right')
+let sliders = document.querySelectorAll('.offer__slide')
+
+let slideIndex = 0
+showSlides(slideIndex)
+
+function showSlides(n) {
+
+    if (n >= sliders.length) {
+        slideIndex = 0
+    }
+    if (n < 0) {
+        slideIndex = sliders.length - 1
+    }
+
+    sliders.forEach(el => el.classList.add('hide'))
+    sliders[slideIndex].classList.remove('hide')
+    sliders[slideIndex].classList.add('show')
+}
+
+prev.onclick = () => {
+    slideIndex--
+    showSlides(slideIndex)
+}
+next.onclick = () => {
+    slideIndex++
+    showSlides(slideIndex)
+}
+
 
 let productCate = document.querySelectorAll('.catalogCategory')
 productCate[0].onclick = () => {
