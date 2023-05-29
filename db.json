@@ -2,27 +2,66 @@
   "users": [
     {
       "email": "murodovkhoji@gmail.com",
-      "name": "khojiakbar",
+      "name": "Войти",
       "surname": "murodov",
-      "password": "kh101",
-      "id": 1,
-      "isLiked": false
+      "password": "1234",
+      "id": 1
     },
     {
       "email": "murodovkhoji@gmail.com",
       "name": "khojiakbar",
       "surname": "murodov",
-      "password": "kh101",
-      "id": 2,
-      "isLiked": false
+      "password": "7777",
+      "id": 2
     },
     {
       "email": "murodovkhoji@gmail.com",
       "name": "khojiakbar",
       "surname": "murodov",
-      "password": "kh101",
-      "id": 3,
-      "isLiked": false
+      "password": "7777",
+      "id": 3
+    },
+    {
+      "email": "murodovkhoji@gmail.com",
+      "name": "khojiakbar",
+      "surname": "murodov",
+      "password": "7777",
+      "id": 4
+    },
+    {
+      "email": "murodovkhoji@gmail.com",
+      "name": "khojiakbar",
+      "surname": "murodov",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "email": "murodovkhoji@gmail.com",
+      "name": "khojiakbar",
+      "surname": "murodov",
+      "password": "8787",
+      "id": 6
+    },
+    {
+      "email": "khojiakbar@gmail.com",
+      "name": "khojiakbar",
+      "surname": "murodov",
+      "password": "4444",
+      "id": 7
+    },
+    {
+      "email": "khojiakbar@gmail.com",
+      "name": "khojiakbar",
+      "surname": "murodov",
+      "password": "1233",
+      "id": 8
+    },
+    {
+      "email": "dalersh@gmail.com",
+      "name": "Daler",
+      "surname": "Sharifkulov",
+      "password": "4444",
+      "id": 9
     }
   ],
   "goods": [

@@ -289,7 +289,6 @@
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    gap: 30px;
     width: 100%;
 
     max-width: 1920px;
@@ -300,7 +299,7 @@
 
 
     .preTitle {
-        padding-top: 40px;
+        padding-top: 10px;
         padding-left: 50px;
     }
 }
@@ -318,7 +317,7 @@
     flex-wrap: wrap;
     gap: 50px;
 
-    padding: 80px;
+    padding: 30px;
 
     .productBox {
         width: 230px;
@@ -402,7 +401,7 @@
 
     margin-top: 100px;
 
-    
+
     .left,
     .middle,
     .right {
@@ -410,8 +409,8 @@
         align-items: flex-start;
         gap: 23px;
         flex-direction: column;
-        
-        
+
+
         a {
             cursor: pointer;
             text-decoration: none;
@@ -454,14 +453,17 @@
             display: flex;
             align-items: center;
             gap: 5px;
+
             .apple {
                 text-decoration: none;
                 color: #000000;
             }
+
             .google {
                 text-decoration: none;
                 color: #000000;
             }
+
             .imgGoogle {
                 margin-left: 20px;
             }
@@ -936,13 +938,13 @@ center {
 
 .catalogDiv {
     display: none;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-
-    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    
+    gap: 200px;
     width: 100%;
-    height: 318px;
+    height: 258px;
 
     background-color: white;
 
@@ -950,21 +952,64 @@ center {
     top: 90px;
     left: 0px;
 
-    padding-left: 340px;
+    padding-left: 350px;
+    padding-right: 350px;
 
     transition: 1s ease;
 
-    .lengthPR {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 15px;
 
-        padding: 2px;
+    .left {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
 
-        border: none;
-        background-color: #7000FF;
-        color: white;
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .lengthPR {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+
+            padding: 2px;
+
+            border: none;
+            background-color: #7000FF;
+            color: white;
+        }
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+
+        input {
+            width: 200px;
+            padding: 10px 15px;
+            border: 2px solid #9643FF;
+            border-radius: 8px;
+        }
+        button {
+            padding: 8px 30px;
+            color: white;
+  
+            background-color: #9643FF;
+            border: none;
+            cursor: pointer;
+        }
+
+    }
+    img {
+        position: absolute;
+        right: 80px;
+        top: 10px;
+        cursor: pointer;
     }
 }
 
@@ -985,8 +1030,8 @@ center {
     margin: 0px auto;
 
     position: relative;
-    
-    
+
+
     .productBox {
         width: 230px;
         height: 389px;
@@ -1059,4 +1104,95 @@ center {
 .a_categ {
     text-decoration: none;
     color: #000000;
+}
+
+
+
+.productsCont {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 100px;
+    width: 100%;
+
+    max-width: 1920px;
+
+    margin: 0px auto;
+
+    padding-left: 80px;
+
+    position: relative;
+
+
+    .productBox {
+        width: 230px;
+        height: 389px;
+
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+
+
+
+        .productImg {
+            width: 230px;
+            height: 300px;
+        }
+
+        .savedImg {
+            position: absolute;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        .bottomSide {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 5px;
+
+            .addProduct {
+                position: absolute;
+                bottom: 0px;
+                right: 10px;
+                cursor: pointer;
+            }
+
+            .title {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+            }
+
+            .spanDiscount {
+                font-family: 'Gilroy';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 15px;
+
+                text-decoration-line: line-through;
+
+                color: #ACACAC;
+            }
+
+            .spanOrigin {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
+
+
+
+    }
+}
+
+.preTitle {
+     padding-left: 100px ;
+     padding-bottom: 50px;
 }

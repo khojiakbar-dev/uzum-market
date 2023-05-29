@@ -39,23 +39,32 @@
 
 
   <div class="catalogDiv">
-    <span class="categories">Категории товаров</span>
-    <a href="/pages/categories.html">
-      <h3 class="catalogCategory" data-type="furniture">Мебель <button class="lengthPR"></button></h3>
-    </a>
-    <a href="/pages/categories.html">
-      <h3 class="catalogCategory" data-type="PC">Компьютерная техника <button class="lengthPR"></button></h3>
-    </a>
-    <a href="/pages/categories.html">
-      <h3 class="catalogCategory" data-type="audio">Акустика <button class="lengthPR"></button></h3>
-    </a>
-    <a href="/pages/categories.html">
-      <h3 class="catalogCategory" data-type="TV">Телевизоры <button class="lengthPR"></button></h3>
-    </a>
-    <a href="/pages/categories.html">
-      <h3 class="catalogCategory" data-type="kitchen">Кухня <button class="lengthPR"></button></h3>
-    </a>
+    <div class="left">
+      <span class="categories">Категории товаров</span>
+      <a href="/pages/categories.html">
+        <h3 class="catalogCategory" data-type="furniture">Мебель <button class="lengthPR"></button></h3>
+      </a>
+      <a href="/pages/categories.html">
+        <h3 class="catalogCategory" data-type="PC">Компьютерная техника <button class="lengthPR"></button></h3>
+      </a>
+      <a href="/pages/categories.html">
+        <h3 class="catalogCategory" data-type="audio">Акустика <button class="lengthPR"></button></h3>
+      </a>
+      <a href="/pages/categories.html">
+        <h3 class="catalogCategory" data-type="TV">Телевизоры <button class="lengthPR"></button></h3>
+      </a>
+      <a href="/pages/categories.html">
+        <h3 class="catalogCategory" data-type="kitchen">Кухня <button class="lengthPR"></button></h3>
+      </a>
+    </div>
+    <div class="right">
+      <input type="number" id="minPrice" placeholder="Минимальная цена">
+      <input type="number" id="maxPrice" placeholder="Максимальная цена">
+      <button class="filterBtn">Фильтровать</button>
+    </div>
+    <img src="/public/close.svg" width="30px" alt="">
   </div>
+
 
   <script type="module" src="/modules/header.js"></script>
   <script type="module" src="/modules/footer.js"></script>

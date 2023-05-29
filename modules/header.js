@@ -1,7 +1,10 @@
 import axios from "axios"
 let loc = JSON.parse(localStorage.getItem('user'))
+console.log(loc);
 let basketProducts = JSON.parse(localStorage.getItem('basket')) || [];
 let catalogModal = document.querySelector('.catalogDiv')
+let closeCatalog = document.querySelector('.catalogDiv img')
+
 export function header(place) {
    let body = document.body
    let header = document.createElement('div')
@@ -59,29 +62,29 @@ export function header(place) {
       }, 200)
 
    }
-
+   
    axios.get("http://localhost:3000/goods")
-      .then(res => onInput(res.data))
-
+   .then(res => onInput(res.data))
+   
    function searchReload(arr, val) {
       listProduct.innerHTML = ''
       for (let item of arr) {
          let re = new RegExp(val, "g")
          let title = item.title.toLowerCase().replace(re, `<b style="color:#9643FF">${val}</b>`)
          listProduct.innerHTML += `
-               <a href="/pages/productid.html?id=${item.id}">
-               <div class="searchLine">
-                  <span>${title}</span>
-               </div>
-               </a>
-            `
+         <a href="/pages/productid.html?id=${item.id}">
+         <div class="searchLine">
+         <span>${title}</span>
+         </div>
+         </a>
+         `
       }
    }
-
+   
    function onInput(arr) {
       input.oninput = () => {
          let val = input.value.toLowerCase().trim()
-
+         
          let filtered = arr.filter(item => item.title.toLowerCase().includes(val))
 
          if (val.length > 0) {
@@ -92,13 +95,17 @@ export function header(place) {
          }
       }
    }
-
-
+   
+   
    body.prepend(header)
    header.append(uzum_icon, catalog, form, accountImg, accountName, saved, korzina, divCounter)
    form.append(divSearch)
    divSearch.append(input, listProduct, imgSearch)
    divCounter.append(counter)
-}
+   
+   closeCatalog.onclick = () => {
+      catalogModal.style.display = 'none'
+   }
 
+}
 

@@ -2,6 +2,7 @@ import { header } from '/modules/header'
 import axios from 'axios'
 let productCont = document.querySelector('.productInfo')
 let savedProducts = JSON.parse(localStorage.getItem('product')) || [];
+let catalogH3 = document.querySelectorAll('.lengthPR')
 let basketProducts = JSON.parse(localStorage.getItem('basket')) || [];
 header()
 import { footer } from '/modules/footer.js'
@@ -207,6 +208,14 @@ function product_reload(arr, place) {
                 }
             }
         }
+
+        const type = item.type;
+        const similarProducts = arr.filter(product => product.type === type);
+        const similarProductsLength = similarProducts.length;
+
+        catalogH3.forEach(it => {
+            it.innerHTML = `${similarProductsLength} товаров`
+        })
     }
 }
 
